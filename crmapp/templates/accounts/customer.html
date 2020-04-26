@@ -1,0 +1,84 @@
+{% extends '../accounts/base.html' %}
+
+{% block title %} Customers {% endblock %}
+
+{%block content %}
+
+<div class="row m-2">
+  <div class="col-md-4">
+    <div class="card">
+      <h5 class="text-center">Customer</h5>
+      <hr>
+      <div class="card-body ">
+        <button type="button" class="btn btn-outline-primary btn-block">Update Customer </button>
+        <button type="button" class="btn btn-outline-danger btn-block">Delete Customer </button>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <h5 class="text-center">Contact info</h5>
+      <hr>
+      <div class="card-body">
+      <p>Email:</p>
+       <p>Phone:</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card">
+      <h5 class="text-center">Total orders</h5>
+      <hr>
+      <div class="card-body">
+      
+        This is some text within a card body.
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 m-2">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+    <button class="btn btn-success" type="submit">Search</button>
+  </div>
+
+
+  <div class="col-md-12 m-2">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+{% endblock %}

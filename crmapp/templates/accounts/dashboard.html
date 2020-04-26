@@ -1,0 +1,110 @@
+{% extends '../accounts/base.html' %}
+
+
+{%block content %}
+
+<div class="row mt-2">
+
+  <div class="col-md-4 bg-primary m-2">
+    <h3 class="text-white text-center">Total Orders</h3>
+    <hr class="bg-white">
+    <h1 class="text-white text-center">6</h1>
+  </div>
+
+  <div class="col-md-3 bg-primary m-2">
+    <h3 class="text-white text-center">Order Delivered</h3>
+    <hr class="bg-white">
+    <h1 class="text-white text-center">6</h1>
+    </div>
+  
+  <div class="col-md-4 bg-primary m-2">
+    <h3 class="text-white text-center">Order Pending</h3>
+    <hr class="bg-white">
+    <h1 class="text-white text-center">6</h1>
+      </div>
+      
+
+
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Customers: </h3>
+    <hr>
+    <div class="card">
+      <button type="button" class="btn btn-primary btn-block">Button 1</button>
+      <div class="card-body">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <h3>Latest Orders</h3>
+    <hr>
+    <div class="card">
+      <button type="button" class="btn btn-primary btn-block">Button 1</button>
+      <div class="card-body">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
