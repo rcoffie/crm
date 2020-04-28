@@ -8,19 +8,19 @@
   <div class="col-md-4 bg-primary m-2">
     <h3 class="text-white text-center">Total Orders</h3>
     <hr class="bg-white">
-    <h1 class="text-white text-center">6</h1>
+    <h1 class="text-white text-center">{{ total_orders }}</h1>
   </div>
 
   <div class="col-md-3 bg-primary m-2">
     <h3 class="text-white text-center">Order Delivered</h3>
     <hr class="bg-white">
-    <h1 class="text-white text-center">6</h1>
+    <h1 class="text-white text-center">{{ delivered }}</h1>
     </div>
   
   <div class="col-md-4 bg-primary m-2">
     <h3 class="text-white text-center">Order Pending</h3>
     <hr class="bg-white">
-    <h1 class="text-white text-center">6</h1>
+    <h1 class="text-white text-center">{{ pending }}</h1>
       </div>
       
 
@@ -37,30 +37,24 @@
         <table class="table table-borderless">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+             
+              <th scope="col">Name</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
             </tr>
           </thead>
           <tbody>
+
+            {% for customer in customers %}
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+           
+              <td>{{ customer.name }}</td>
+              <td>{{ customer.phone }}</td>
+              <td>{{ customer.email }}</td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            {% endfor %}
+         
+        
           </tbody>
         </table>
       </div>
@@ -76,30 +70,26 @@
         <table class="table table-borderless">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              
+              <th scope="col">Customer</th>
+              <th scope="col">Product</th>
+              <th scope="col">Status</th>
+              <th scope="col">Update</th>
+              <th scope="col">Remove</th>
             </tr>
           </thead>
           <tbody>
+            {% for order in orders%}
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              
+              <td>{{ order.customer }}</td>
+              <td>{{ order.product }}</td>
+              <td>{{ order.status }}</td>
+              <td> <a href="http://" class="btn btn-primary"> Update</a> </td>
+              <td> <a href="http://" class="btn btn-danger "> Delete </a> </td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            {% endfor %}
+         
           </tbody>
         </table>
       </div>

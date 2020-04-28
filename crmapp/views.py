@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from . models import *
 
 # Create your views here.
 """
@@ -7,11 +8,20 @@ def index(request):
   return HttpResponse("this is the index page")
   """
 def dashboard(request):
-  return render(request,'accounts/dashboard.html')
+  customers = Customer.objects.all()
+  orders    = Order.objects.all()
+  total_orders = orders.count()
+  total_customers = customers.count()
+  delivered = orders.filter(status='Delivered').count()
+  pending = orders.filter(status='Pending').count()
+  context = {'customers':customers,'orders':orders,'total_orders':total_orders,'total_customers':total_customers,'delivered':delivered,'pending':pending}
+  return render(request,'accounts/dashboard.html',context)
 
 
 def products(request):
-  return render(request,'accounts/products.html')
+  products = Product.objects.all()
+  context = {'products':products}
+  return render(request,'accounts/products.html',context)
 
 
 def customers(request):
