@@ -5,19 +5,19 @@
 
 <div class="row mt-2">
 
-  <div class="col-md-4 bg-primary m-2">
+  <div class="col-md-4 bg-info m-2">
     <h3 class="text-white text-center">Total Orders</h3>
     <hr class="bg-white">
     <h1 class="text-white text-center">{{ total_orders }}</h1>
   </div>
 
-  <div class="col-md-3 bg-primary m-2">
+  <div class="col-md-3 bg-info m-2">
     <h3 class="text-white text-center">Order Delivered</h3>
     <hr class="bg-white">
     <h1 class="text-white text-center">{{ delivered }}</h1>
     </div>
   
-  <div class="col-md-4 bg-primary m-2">
+  <div class="col-md-4 bg-info m-2">
     <h3 class="text-white text-center">Order Pending</h3>
     <hr class="bg-white">
     <h1 class="text-white text-center">{{ pending }}</h1>
@@ -32,7 +32,7 @@
     <h3>Customers: </h3>
     <hr>
     <div class="card">
-      <button type="button" class="btn btn-primary btn-block">Button 1</button>
+      <button type="button" class="btn btn-info btn-block">Button 1</button>
       <div class="card-body">
         <table class="table table-borderless">
           <thead>
@@ -48,7 +48,7 @@
             {% for customer in customers %}
             <tr>
            
-              <td>{{ customer.name }}</td>
+              <td> <a href="{% url 'customer' customer.id %}"> {{ customer.name }} </a> </td>
               <td>{{ customer.phone }}</td>
               <td>{{ customer.email }}</td>
             </tr>
@@ -65,7 +65,7 @@
     <h3>Latest Orders</h3>
     <hr>
     <div class="card">
-      <button type="button" class="btn btn-primary btn-block">Button 1</button>
+      <button type="button" class="btn btn-info btn-block">Button 1</button>
       <div class="card-body">
         <table class="table table-borderless">
           <thead>
@@ -85,7 +85,7 @@
               <td>{{ order.customer }}</td>
               <td>{{ order.product }}</td>
               <td>{{ order.status }}</td>
-              <td> <a href="http://" class="btn btn-primary"> Update</a> </td>
+              <td> <a href="http://" class="btn btn-info"> Update</a> </td>
               <td> <a href="http://" class="btn btn-danger "> Delete </a> </td>
             </tr>
             {% endfor %}
