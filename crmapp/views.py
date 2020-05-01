@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from . models import *
+from . forms import *
 
 # Create your views here.
 """
@@ -32,4 +33,9 @@ def customer(request,pk):
   context  = {'customer':customer,'orders':orders}
   
   return render(request,'accounts/customer.html',context)
+
+
+def order(request):
+  context ={}
+  return render(request,'accounts/order.html',context)
   
