@@ -1,5 +1,6 @@
 {%  extends '../accounts/base.html' %}
 {% block title%} Create Order {% endblock %}
+{% load crispy_forms_tags %}
 
 
 
@@ -8,13 +9,13 @@
 <div class="row m-2">
   <div class="col-md-8">
     <div class="jumbotron">
-      <h1 class="display-4">Hello, world!</h1>
+      <h1 class="display-4">Order Creation</h1>
       <form action="" method="POST">
-        
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-info m-2"> Submit</button>
       </form>
-      <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+
     </div>
   </div>
 </div>
