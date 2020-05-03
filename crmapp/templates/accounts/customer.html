@@ -11,7 +11,7 @@
       <hr>
       <div class="card-body ">
         <button type="button" class="btn btn-outline-primary btn-block">Update Customer </button>
-        <button type="button" class="btn btn-outline-danger btn-block">Delete Customer </button>
+        <a href="{% url 'order' customer.id %}" type="button" class="btn btn-outline-danger btn-block">Place new Order </a>
         
       </div>
     </div>
