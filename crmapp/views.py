@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from . models import *
 from . forms import *
+from django.forms import inlineformset_factory
 
 # Create your views here.
 """
@@ -38,14 +39,17 @@ def customer(request,pk):
 
 def order(request, pk):
   customer = Customer.objects.get(id=pk)
-  form = OrderForm(initial={'customer':customer})
+  OrderFormSet = inlineformset_factory(Customer, Order,fields=('product','status'),extra=10)
+  #form = OrderForm(initial={'customer':customer})
+  formset = OrderFormSet(queryset=Order.objects.none(), instance=customer)
   
   if request.method == 'POST':
-    form = OrderForm(request.POST)
-    if form.is_valid():
-      form.save()
+    formset = OrderFormSet(request.POST, instance=customer) 
+    #form = OrderForm(request.POST)
+    if formset.is_valid():
+      formset.save()
       return redirect('/')
-  context ={'form':form,}
+  context ={'formset':formset,}
   return render(request,'accounts/order.html',context)
   
   
