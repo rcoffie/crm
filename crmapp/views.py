@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from . models import *
 from . forms import *
 from django.forms import inlineformset_factory
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 """
@@ -71,3 +72,9 @@ def delete(request,pk):
   order = Order.objects.get(id=pk)
   order.delete()
   return redirect('/')
+
+
+def registration(request):
+  forms = UserCreationForm()
+  context = {'forms':forms,}
+  return render(request,'accounts/registration.html',context)
