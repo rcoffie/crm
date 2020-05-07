@@ -5,12 +5,11 @@ from . forms import *
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-"""
-def index(request):
-  return HttpResponse("this is the index page")
-  """
+
+@login_required(login_url='login')
 def dashboard(request):
   customers = Customer.objects.all()
   orders    = Order.objects.all()
@@ -21,7 +20,7 @@ def dashboard(request):
   context = {'customers':customers,'orders':orders,'total_orders':total_orders,'total_customers':total_customers,'delivered':delivered,'pending':pending}
   return render(request,'accounts/dashboard.html',context)
 
-
+@login_required(login_url='login')
 def products(request):
   products = Product.objects.all()
   context = {'products':products}
@@ -29,7 +28,7 @@ def products(request):
 
 
 
-
+@login_required(login_url='login')
 def customer(request,pk):
   customer = Customer.objects.get(id=pk)
   orders   = customer.order_set.all()
@@ -38,7 +37,7 @@ def customer(request,pk):
   
   return render(request,'accounts/customer.html',context)
 
-
+@login_required(login_url='login')
 def order(request, pk):
   customer = Customer.objects.get(id=pk)
   OrderFormSet = inlineformset_factory(Customer, Order,fields=('product','status'),extra=10)
@@ -90,5 +89,17 @@ def registration(request):
 
 
 def loginPage(request):
+  if request.method == 'POST':
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = authenticate(request,username=username,password=password)
+    if user is not None:
+      login(request, user)
+      return redirect('/')
   context = {}
   return render(request,'accounts/login.html')
+
+
+def logoutUser(request):
+  logout(request)
+  return redirect('register/')

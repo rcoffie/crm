@@ -21,9 +21,14 @@
           <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Features</a>
           <a class="nav-item nav-link" href="#">Pricing</a>
+          {% if request.user%}
+          <a class="nav-item nav-link" href="{% url 'logout' %}">Logout </a>
+          {% endif %}
           <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </div>
+       
       </div>
+      <span>{{ request.user }}</span>
     </nav>
     <div class="container">
       {% block content %}
